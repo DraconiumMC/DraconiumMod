@@ -1,0 +1,7 @@
+{
+    "parent": "forge:fluid",
+    "textures":
+    {
+        "texture": "draconiumcore:fluids/fake_water_fluid"
+    }
+}

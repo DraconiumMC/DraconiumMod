@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "draconiumcore:pyronite_block"
+    }
+  ],
+  "result": {
+    "item": "draconiumcore:pyronite_ingot",
+    "count": 9
+  }
+}

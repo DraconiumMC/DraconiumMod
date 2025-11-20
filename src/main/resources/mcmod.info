@@ -1,0 +1,16 @@
+[
+{
+  "modid": "draconiumcore",
+  "name": "Draconium - Core",
+  "description": "Draconium Core",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["FrozerYTB, Blackbalrog"],
+  "credits": "Made in France",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

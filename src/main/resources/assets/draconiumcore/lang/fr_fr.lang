@@ -1,0 +1,113 @@
+# MORTS
+
+death.attack.fakeWater=%1$s est tombé(e) dans de l'eau empoisonnée.
+death.attack.fakeWater.player=%1$s est tombé(e) dans de l'eau empoisonnée en combattant %2$s.
+
+# FLUIDES
+
+fluid.fake_water=Fausse eau
+
+# ARMURE EN AZURITE
+
+item.azurite_helmet.name=Casque en Azurite
+item.azurite_chestplate.name=Plastron en Azurite
+item.azurite_leggings.name=Jambières en Azurite
+item.azurite_boots.name=Bottes en Azurite
+
+# ARMURE EN DRACONIQUE
+
+item.draconique_helmet.name=Casque Draconite
+item.draconique_chestplate.name=Plastron Draconique
+item.draconique_leggings.name=Jambières Draconique
+item.draconique_boots.name=Bottes Draconique
+
+# ARMURE EN DRACONIUM
+
+item.draconium_helmet.name=Casque en Draconium
+item.draconium_chestplate.name=Plastron en Draconium
+item.draconium_leggings.name=Jambières en Draconium
+item.draconium_boots.name=Bottes en Draconium
+
+# OUTILS EN AZURITE
+
+item.azurite_axe.name=Hache en Azurite
+item.azurite_pickaxe.name=Pioche en Azurite
+item.azurite_shovel.name=Pelle en Azurite
+item.azurite_hammer.name=Marteau en Azurite
+
+# OUTILS EN DRACONIUM
+
+item.draconium_axe.name=Hache en Draconium
+item.draconium_pickaxe.name=Pioche en Draconium
+item.draconium_shovel.name=Pelle en Draconium
+item.draconium_hammer.name=Marteau en Draconium
+
+# ARMES EN AZURITE
+
+item.azurite_sword.name=Épée en Azurite
+
+# ARMES EN DRACONIUM
+
+item.draconium_sword.name=Épée en Draconium
+
+
+# AUTRES ARMES
+
+item.grenade.name=Grenade
+item.debris_grenade.name=Débris de Grenade
+
+
+# ITEMS SPÉCIAUX
+item.radar.name=Unclaim Finder
+item.regeneration_stick.name=Bâton de Régénération
+item.stick_of_god.name=Bâton de Dieu
+item.forge.bucketFilled.name=Seau de %s
+item.sponge_on_a_stick= Éponge sur un bâton
+
+# NOURITURRE
+
+item.draconium_apple.name=Pomme en Draconium
+
+# LINGOTS
+item.azurite_ingot.name=Lingot d'Azurite
+item.draconium_ingot.name=Lingot de Draconium
+item.findium_cristal.name= Cristal en Findium
+
+# CREATIVE TAB
+
+itemGroup.draconiummodtab=DraconiumMod
+
+
+# BLOCS NORMAUX
+tile.azurite_block.name=Bloc d'Azurite
+tile.draconium_block.name=Bloc de Draconium
+tile.cave_block.name=Cave Block
+tile.elevator.name=Elévateur
+
+# BLOCS DE MINERAIS
+
+tile.azurite_ore.name=Minerai d'Azurite
+tile.draconium_ore.name=Minerai de Draconium
+tile.explosive_ore.name=Minerai explosif
+tile.findium_ore.name=Minerai de Findium
+
+#ENCHANTEMENTS
+
+
+
+#AUTRES ITEMS
+item.draconium_gear.name=Rouage en Draconium
+
+#ARC ET FLECHES
+item.draconium_bow.name=Arc en Draconium
+item.switch_arrow.name= Fleches de déplacement
+
+#GROUPES
+
+itemGroup.draconium_block=§2Draconium Blocks
+itemGroup.draconium_food=Draconium Nourritures
+itemGroup.draconium_armor=Draconium Armures
+itemGroup.draconium_tool=Draconium Outils
+itemGroup.draconium_other=Draconium Autres
+
+enchantment.range_enchant.name=Range

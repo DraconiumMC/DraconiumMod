@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#F#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glass"
+    },
+    "F": {
+      "item": "draconiumcore:findium_cristal"
+    }
+  },
+  "result": {
+    "item": "draconiumcore:cave_block",
+    "count": 1
+  }
+}

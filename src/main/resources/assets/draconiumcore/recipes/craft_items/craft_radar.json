@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "G#G",
+    "#C#",
+    "G#G"
+
+  ],
+  "key": {
+    "#": {
+      "item": "draconiumcore:draconium_ingot"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "G": {
+      "item": "draconiumcore:draconium_gear"
+    }
+
+  },
+  "result": {
+    "item": "draconiumcore:radar",
+    "count": 1
+  }
+}

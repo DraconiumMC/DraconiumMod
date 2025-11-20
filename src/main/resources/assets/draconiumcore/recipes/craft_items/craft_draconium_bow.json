@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #C",
+    "# C",
+    " #C"
+  ],
+  "key": {
+    "#": {
+      "item": "draconiumcore:draconium_stick"
+    },
+    "C": {
+      "item": "minecraft:string"
+    }
+
+  },
+  "result": {
+    "item": "draconiumcore:draconium_bow",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "draconiumcore:draconium_ingot"
+    }
+  },
+  "result": {
+    "item": "draconiumcore:draconium_block",
+    "count": 1
+  }
+}

@@ -1,0 +1,58 @@
+{
+    "parent": "item/generated",
+    "textures":
+    {
+        "layer0": "draconiumcore:items/radars/radar_empty"
+    },
+    "overrides": [
+    {
+        "predicate":
+        {
+            "percent": 1
+        },
+        "model": "draconiumcore:item/radar0_5"
+    },
+    {
+        "predicate":
+        {
+            "percent": 5
+        },
+        "model": "draconiumcore:item/radar0_5"
+    },
+    {
+        "predicate":
+        {
+            "percent": 6
+        },
+        "model": "draconiumcore:item/radar6_10"
+    },
+    {
+        "predicate":
+        {
+            "percent": 10
+        },
+        "model": "draconiumcore:item/radar6_10"
+    },
+    {
+        "predicate":
+        {
+            "percent": 11
+        },
+        "model": "draconiumcore:item/radar11_25"
+    },
+    {
+        "predicate":
+        {
+            "percent": 25
+        },
+        "model": "draconiumcore:item/radar11_25"
+    },
+    {
+        "predicate":
+        {
+            "percent": 26
+        },
+        "model": "draconiumcore:item/radar26_more"
+    }
+  ]
+}

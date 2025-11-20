@@ -1,0 +1,8 @@
+{
+  "parent": "block/water",
+  "textures": {
+    "particle": "draconiumcore:blocks/fluids/fluid_texture",
+    "still": "draconiumcore:blocks/fluids/fluid_texture",
+    "flow": "draconiumcore:blocks/fluids/fluid_texture"
+  }
+}
