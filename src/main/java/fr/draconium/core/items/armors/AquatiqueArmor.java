@@ -31,11 +31,6 @@ public class AquatiqueArmor extends ItemArmor
 	protected boolean isAmrorComplet(EntityPlayer player)
 	{
 		return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem().equals(ArmorsInit.AQUATIQUE_HELMET);
-				/*
-				&& player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem().equals(ArmorsInit.AQUATIQUE_CHESTPLATE)
-				&& player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem().equals(ArmorsInit.AQUATIQUE_LEGGINGS)
-				&& player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem().equals(ArmorsInit.AQUATIQUE_BOOTS);
-				*/
 	}
 	
 	private void handleAquatiqueArmorEffects(EntityPlayer player)
