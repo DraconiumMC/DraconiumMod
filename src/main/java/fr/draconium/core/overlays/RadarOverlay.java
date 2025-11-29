@@ -49,7 +49,7 @@ public class RadarOverlay extends Gui
 				return;
 			}
 
-			int chunksRadius = ItemRadar.instance.getRadarRange(stack);
+			int chunksRadius = ItemRadar.instance.getScanRadiusChunks(stack);
 
 			Set<String> chunksVisited = new HashSet<>();
 			amountTiles = 0;

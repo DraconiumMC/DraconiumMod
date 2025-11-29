@@ -309,6 +309,7 @@ public class ItemRadar extends Item {
         // Exemple futur: réduire un cooldown, stocker un flag NBT, etc.
     }
 
+
     // ===================== RESULTAT =====================
 
     public static class RadarResult {
