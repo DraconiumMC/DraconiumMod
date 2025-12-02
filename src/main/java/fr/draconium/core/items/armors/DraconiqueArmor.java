@@ -15,7 +15,7 @@ public class DraconiqueArmor extends ItemArmor
 	public DraconiqueArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
 	{
 		super(materialIn, renderIndexIn, equipmentSlotIn);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_ARMORS);
 	}

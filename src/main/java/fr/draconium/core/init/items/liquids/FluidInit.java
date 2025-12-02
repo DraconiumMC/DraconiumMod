@@ -11,9 +11,10 @@ import net.minecraftforge.fml.common.Mod;
 public class FluidInit
 {
 	public static Fluid FAKE_WATER_FLUID = new FluidLiquid("fake_water_fluid",
-			new ResourceLocation(Reference.MODID, "fluids/fake_water_fluid"),
-			new ResourceLocation(Reference.MODID, "fluids/fake_water_fluid"));
-	
+            new ResourceLocation("minecraft:blocks/water_still"),
+            new ResourceLocation("minecraft:blocks/water_flow")
+    );
+
 	public static void registerFluids()
 	{
 		registerFluid(FAKE_WATER_FLUID);

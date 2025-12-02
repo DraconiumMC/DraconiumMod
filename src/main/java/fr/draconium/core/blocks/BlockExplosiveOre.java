@@ -23,7 +23,7 @@ public class BlockExplosiveOre extends Block
 	public BlockExplosiveOre(String name, Material materialIn)
 	{
 		super(materialIn);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setHardness(8.0F);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_BLOCK);

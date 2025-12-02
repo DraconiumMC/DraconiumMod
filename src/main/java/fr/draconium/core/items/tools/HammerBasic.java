@@ -23,7 +23,7 @@ public class HammerBasic extends ItemPickaxe
 	public HammerBasic(String name, ToolMaterial material)
 	{
 		super(material);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setMaxStackSize(1);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_TOOLS);
@@ -43,7 +43,7 @@ public class HammerBasic extends ItemPickaxe
 	{
 		Vec3d vec3d 	= entity.getPositionEyes(partialTicks);
 		Vec3d vec3d1 	= entity.getLook(partialTicks);
-		Vec3d vec3d2 	= vec3d.addVector(vec3d1.x * blockReachDistance, vec3d1.y * blockReachDistance, vec3d1.z * blockReachDistance);
+		Vec3d vec3d2 	= vec3d.add(vec3d1.x * blockReachDistance, vec3d1.y * blockReachDistance, vec3d1.z * blockReachDistance);
 		return world.rayTraceBlocks(vec3d, vec3d2, false, false, true);
 	}
 	

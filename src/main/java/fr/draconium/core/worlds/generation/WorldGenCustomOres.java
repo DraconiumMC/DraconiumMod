@@ -22,6 +22,9 @@ public class WorldGenCustomOres implements IWorldGenerator {
             // 🔥 Pyronite — Génération spéciale près des lacs de lave
             new OreGenParams(7, 5, 1, 15, BlocksOresInit.PYRONITE_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), WorldGenCustomOres::isNearLava),
 
+            // 💣 ExplosiveOre — Génération normale
+            new OreGenParams(3,4,1,30, BlocksOresInit.EXPLOSIVE_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), (w,r,p) -> true),
+
             // 💎 Draconium — Génération normale
             new OreGenParams(5, 3, 1, 12, BlocksOresInit.DRACONIUM_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), (w, r, p) -> true),
 
@@ -29,8 +32,10 @@ public class WorldGenCustomOres implements IWorldGenerator {
             new OreGenParams(2, 2, 1, 7, BlocksOresInit.FINDIUM_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), (w, r, p) -> true),
 
             // 🌍 RandomOre — Génération classique aléatoire
-            new OreGenParams(6, 6, 3, 50, BlocksOresInit.RANDOM_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), (w, r, p) -> true)
+            new OreGenParams(2, 3, 3, 50, BlocksOresInit.RANDOM_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), (w, r, p) -> true)
     );
+
+
 
     // =======================================================================
     // 🌋 Liste des minerais du Nether

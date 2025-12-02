@@ -19,7 +19,7 @@ public class ItemRegenerationStick extends Item
 	
 	public ItemRegenerationStick(String name)
 	{
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setMaxDamage(MAX_DURABILITY - 1); // Adjusted to start at 0 and go up to MAX_DURABILITY - 1
 		this.setMaxStackSize(1);

@@ -15,7 +15,7 @@ public class ItemGrenade extends Item
 {
 	public ItemGrenade(String name)
 	{
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setMaxStackSize(16);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS);

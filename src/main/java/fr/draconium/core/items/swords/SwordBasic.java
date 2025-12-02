@@ -9,7 +9,7 @@ public class SwordBasic extends ItemSword
 	public SwordBasic(String name, ToolMaterial material)
 	{
 		super(material);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_ARMORS);
 	}

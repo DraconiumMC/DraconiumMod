@@ -1,14 +1,20 @@
 {
-    "forge_marker": 1,
-    "variants":
-    {
-        "fluid":
-        {
-            "model": "forge:fluid",
-            "custom":
-            {
-                "fluid": "fake_water_fluid"
-            }
-        }
+  "forge_marker": 1,
+  "defaults": {
+    "model": "forge:fluid"
+  },
+  "variants": {
+    "normal": {
+      "model": "forge:fluid",
+      "custom": { "fluid": "fake_water_fluid" }
+    },
+    "fluid": {
+      "model": "forge:fluid",
+      "custom": { "fluid": "fake_water_fluid" }
+    },
+    "inventory": {
+      "model": "forge:fluid",
+      "custom": { "fluid": "fake_water_fluid" }
     }
+  }
 }

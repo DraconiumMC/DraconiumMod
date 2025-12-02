@@ -25,7 +25,7 @@ public class BlockElevator extends Block
 	public BlockElevator(String name, Material materialIn)
 	{
 		super(materialIn);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setHardness(8.0F);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_BLOCK);

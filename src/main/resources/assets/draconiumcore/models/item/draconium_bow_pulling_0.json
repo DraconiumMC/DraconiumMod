@@ -1,0 +1,5 @@
+{
+  "parent": "draconiumcore:item/draconium_bow",
+  "textures": {
+    "layer0": "draconiumcore:items/bow/draconium_bow_pulling_0" }
+}

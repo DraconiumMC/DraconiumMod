@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "burning=false,facing=north": { "model": "draconiumcore:draconium_furnace" },
+    "burning=false,facing=south": { "model": "draconiumcore:draconium_furnace", "y": 180 },
+    "burning=false,facing=west":  { "model": "draconiumcore:draconium_furnace", "y": 270 },
+    "burning=false,facing=east":  { "model": "draconiumcore:draconium_furnace", "y": 90 },
+
+    "burning=true,facing=north":  { "model": "draconiumcore:draconium_furnace_on" },
+    "burning=true,facing=south":  { "model": "draconiumcore:draconium_furnace_on", "y": 180 },
+    "burning=true,facing=west":   { "model": "draconiumcore:draconium_furnace_on", "y": 270 },
+    "burning=true,facing=east":   { "model": "draconiumcore:draconium_furnace_on", "y": 90 }
+  }
+}

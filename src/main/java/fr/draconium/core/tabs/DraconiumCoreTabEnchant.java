@@ -37,7 +37,7 @@ public class DraconiumCoreTabEnchant extends CreativeTabs
 	}
 	
 	@Override
-	public ItemStack getTabIconItem()
+	public ItemStack createIcon()
 	{
 		return this.item != null ? this.item : this.block;
 	}

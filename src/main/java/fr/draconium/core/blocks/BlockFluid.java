@@ -19,17 +19,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockFluid extends BlockFluidClassic
 {
-	public BlockFluid(String name,Fluid fluid,Material material)
-	{
-		super(fluid, material);
-		this.setRegistryName(name);
-		this.setUnlocalizedName(this.getRegistryName().toString());
-		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_TOOLS);
-	}
-	
-	@Override
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
-	{
+    public BlockFluid(String name, Fluid fluid, Material material)
+    {
+        super(fluid, material);
+        this.setRegistryName(name);
+        this.setTranslationKey(this.getRegistryName().toString());
+    }
+
+    @Override
+    // C'était "onEntityCollidedWithBlock"
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+    {
         if (entityIn instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entityIn;
@@ -37,21 +37,23 @@ public class BlockFluid extends BlockFluidClassic
         }
     }
 
-	@SideOnly(Side.CLIENT)
-	public void render()
-	{
-		ModelLoader.setCustomStateMapper(this, new StateMap.Builder().ignore(LEVEL).build());
-	}
+    @SideOnly(Side.CLIENT)
+    public void render()
+    {
+        ModelLoader.setCustomStateMapper(this, new StateMap.Builder().ignore(LEVEL).build());
+    }
 
-	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state)
-	{
-		return EnumBlockRenderType.MODEL;
-	}
+    @Override
+    public EnumBlockRenderType getRenderType(IBlockState state)
+    {
+        return EnumBlockRenderType.MODEL;
+    }
 
-	@Override
-	public BlockRenderLayer getBlockLayer()
-	{
-		return BlockRenderLayer.TRANSLUCENT;
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    // C'était "getBlockLayer"
+    public BlockRenderLayer getRenderLayer()
+    {
+        return BlockRenderLayer.TRANSLUCENT;
+    }
 }

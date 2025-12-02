@@ -14,7 +14,7 @@ public class BlockBasic extends Block
 	public BlockBasic(String name, Material materialIn)
 	{
 		super(materialIn);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_BLOCK);
 	}

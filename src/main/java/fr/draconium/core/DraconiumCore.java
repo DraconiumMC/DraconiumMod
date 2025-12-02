@@ -1,16 +1,18 @@
 package fr.draconium.core;
 
-import fr.draconium.core.handlers.GuiEventHandler;
+import fr.draconium.core.blocks.tileentity.TileEntityDisenchanter;
+import fr.draconium.core.client.render.RenderDisenchanter;
+import fr.draconium.core.handlers.*;
 import fr.draconium.core.init.enchants.EnchantementsInit;
 import fr.draconium.core.worlds.ModConfig;
 import fr.draconium.core.worlds.generation.WorldGenCustomOres;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import fr.draconium.core.entitys.EntityGrenade;
-import fr.draconium.core.handlers.AnvilEventHandler;
-import fr.draconium.core.handlers.PlayerJoinHandler;
 import fr.draconium.core.init.blocks.BlocksInit;
 import fr.draconium.core.init.blocks.ores.BlocksOresInit;
 import fr.draconium.core.init.capabilities.CapabilitiesInit;
@@ -44,11 +46,12 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.io.File;
+import java.rmi.registry.RegistryHandler;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, acceptedMinecraftVersions = Reference.MINECRAFT_VERSION)
 public class DraconiumCore
 {
-	private static DraconiumCore instance;
+	public static DraconiumCore instance;
 	
 	@SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.SERVER, modId = Reference.MODID)
 	private static ServerProxy serverProxy;
@@ -117,14 +120,20 @@ public class DraconiumCore
 				10,
 				true
 		);
-        ModConfig.loadConfig(new File(event.getModConfigurationDirectory(), "draconiummod.cfg"));
+
+        GameRegistry.registerTileEntity(fr.draconium.core.blocks.tileentity.TileEntityDraconiumFurnace.class, new ResourceLocation(Reference.MODID, "draconium_furnace"));
+        GameRegistry.registerTileEntity(fr.draconium.core.blocks.tileentity.TileEntityDisenchanter.class, new ResourceLocation(Reference.MODID, "disenchanter"));
+        MinecraftForge.EVENT_BUS.register(new BowEventHandler());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDisenchanter.class, new RenderDisenchanter());
+        ModConfig.loadConfig(new File(event.getModConfigurationDirectory(), "draconiumcore.cfg"));
 	}
 
 
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-        MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+        RecipesHandler.registerSmelting();
 		instance = this;
 		
 		serverProxy.register();

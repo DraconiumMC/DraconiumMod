@@ -22,7 +22,7 @@ public class ItemTimer extends Item
 	{
 		instance = this;
 
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setMaxStackSize(1);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS);

@@ -18,7 +18,7 @@ public class BlockPyroniteOre extends Block {
 
     public BlockPyroniteOre(String name, Material materialIn) {
         super(materialIn);
-        this.setUnlocalizedName(name);
+        this.setTranslationKey(name);
         this.setRegistryName(name);
         this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_BLOCK);
         this.setHardness(8.0F);

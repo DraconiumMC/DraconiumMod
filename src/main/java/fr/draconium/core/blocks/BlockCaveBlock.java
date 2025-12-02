@@ -13,7 +13,7 @@ public class BlockCaveBlock extends Block
 	public BlockCaveBlock(String name, Material materialIn)
 	{
 		super(materialIn);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setHardness(5.0f);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_BLOCK);

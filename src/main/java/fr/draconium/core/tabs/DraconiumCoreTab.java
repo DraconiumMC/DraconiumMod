@@ -30,7 +30,7 @@ public class DraconiumCoreTab extends CreativeTabs
 	}
 	
 	@Override
-	public ItemStack getTabIconItem()
+	public ItemStack createIcon()
 	{
 		return this.item != null ? this.item : this.block;
 	}
@@ -41,7 +41,7 @@ public class DraconiumCoreTab extends CreativeTabs
 		return false;
 	}
 	
-	@Override
+
 	public ResourceLocation getBackgroundImage()
 	{
 		return new ResourceLocation(Reference.MODID, "textures/guis/background_creative_inventory_draconiumcore.png");

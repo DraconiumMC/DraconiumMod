@@ -26,7 +26,7 @@ public class ItemSpongeOnAStick extends Item
 	
 	public ItemSpongeOnAStick(String name)
 	{
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(SPONGE_MAX_DAMAGE);

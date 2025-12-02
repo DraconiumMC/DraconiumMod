@@ -68,7 +68,7 @@ public class RadarOverlay extends Gui
 						{
 							chunksVisited.add(chunkKey);
 							amountTiles += minecraft.world
-									.getChunkFromChunkCoords(chunkX, chunkZ)
+									.getChunk(chunkX, chunkZ)
 									.getTileEntityMap()
 									.values()
 									.size();

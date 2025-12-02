@@ -9,7 +9,7 @@ public class PickaxeBasic extends ItemPickaxe
 	public PickaxeBasic(String name, ToolMaterial material)
 	{
 		super(material);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_TOOLS);
 	}

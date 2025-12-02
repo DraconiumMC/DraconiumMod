@@ -7,7 +7,7 @@ public class ItemBasic extends Item
 {
 	public ItemBasic(String name)
 	{
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 	}
 }

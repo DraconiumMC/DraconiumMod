@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top":    "draconiumcore:blocks/draconium_furnace_top",
+    "front":  "draconiumcore:blocks/draconium_furnace_front_off",
+    "side":   "draconiumcore:blocks/draconium_furnace_side"
+  }
+}

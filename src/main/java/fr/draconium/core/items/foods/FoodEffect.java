@@ -20,7 +20,7 @@ public class FoodEffect extends ItemFood
 	{
 		// isWolfFood = if wolf like apple (false)
 		super(amount, false);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setAlwaysEdible();
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_FOOD);

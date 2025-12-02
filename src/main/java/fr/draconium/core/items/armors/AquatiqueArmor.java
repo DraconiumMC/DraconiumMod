@@ -16,7 +16,7 @@ public class AquatiqueArmor extends ItemArmor
 	public AquatiqueArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
 	{
 		super(materialIn, renderIndexIn, equipmentSlotIn);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_ARMORS);
 	}

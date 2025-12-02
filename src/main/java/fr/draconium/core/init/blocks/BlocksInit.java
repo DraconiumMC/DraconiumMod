@@ -3,10 +3,7 @@ package fr.draconium.core.init.blocks;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.draconium.core.blocks.BlockBasic;
-import fr.draconium.core.blocks.BlockCaveBlock;
-import fr.draconium.core.blocks.BlockElevator;
-import fr.draconium.core.blocks.BlockFluid;
+import fr.draconium.core.blocks.*;
 import fr.draconium.core.init.items.liquids.FluidInit;
 import fr.draconium.core.messages.Console;
 import fr.draconium.core.references.Reference;
@@ -33,8 +30,9 @@ public class BlocksInit
 	//Others
 	public static Block CAVE_BLOCK;
 	public static Block ELEVATOR;
-	
 	public static Block FAKE_WATER_FLUID_BLOCK;
+    public static Block DRACONIUM_FURNACE;
+    public static Block DISENCHANTER;
 	
 	public static void init()
 	{
@@ -43,6 +41,8 @@ public class BlocksInit
 		
 		blocks.add(CAVE_BLOCK 				= new BlockCaveBlock("cave_block", Material.GLASS));
 		blocks.add(ELEVATOR 				= new BlockElevator("elevator", Material.IRON));
+        blocks.add(DRACONIUM_FURNACE		= new BlockDraconiumFurnace("draconium_furnace"));
+        blocks.add(DISENCHANTER             = new BlockDisenchanter("disenchanter"));
 		
 		blocks.add(FAKE_WATER_FLUID_BLOCK 	= new BlockFluid("fake_water_fluid", FluidInit.FAKE_WATER_FLUID, Material.WATER));
 	}
@@ -72,14 +72,24 @@ public class BlocksInit
 	/**
 	 * @apiNote Get json model
 	 */
-	@SubscribeEvent
-	protected static void regsiterRenders(ModelRegistryEvent event)
-	{
-		for (Block block : blocks)
-		{
-			registerRender(Item.getItemFromBlock(block));
-		}
-	}
+    @SubscribeEvent
+    protected static void regsiterRenders(ModelRegistryEvent event)
+    {
+        // 1. On appelle ton RenderHandler spécial pour les fluides
+        fr.draconium.core.handlers.RenderHandler.registerCustomMeshesAndStates();
+
+        // 2. On boucle sur les blocs normaux
+        for (Block block : blocks)
+        {
+            // IMPORTANT : Si c'est un fluide, on PASSE au suivant (continue)
+            // On ne veut pas l'enregistrer comme un bloc normal
+            if (block instanceof fr.draconium.core.blocks.BlockFluid) {
+                continue;
+            }
+
+            registerRender(Item.getItemFromBlock(block));
+        }
+    }
 	
 	private static void registerRender(Item item)
 	{

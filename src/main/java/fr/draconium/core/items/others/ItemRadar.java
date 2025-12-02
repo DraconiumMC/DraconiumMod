@@ -43,7 +43,7 @@ public class ItemRadar extends Item {
 
     public ItemRadar(String name) {
         instance = this;
-        this.setUnlocalizedName(name);
+        this.setTranslationKey(name);
         this.setRegistryName(name);
         this.setMaxStackSize(1);
         this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS);
@@ -285,7 +285,7 @@ public class ItemRadar extends Item {
             return Collections.emptyList();
         }
 
-        Chunk chunk = world.getChunkFromChunkCoords(chunkX, chunkZ);
+        Chunk chunk = world.getChunk(chunkX, chunkZ);
         List<BlockPos> result = new ArrayList<>();
 
         for (TileEntity te : chunk.getTileEntityMap().values()) {
