@@ -4,10 +4,12 @@ import fr.draconium.core.DraconiumCore;
 import fr.draconium.core.entitys.EntitySwitchArrow;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 public class ItemSwitchArrow extends ItemArrow {
@@ -22,6 +24,16 @@ public class ItemSwitchArrow extends ItemArrow {
 
     @Override
     public EntityArrow createArrow(World worldIn, ItemStack stack, EntityLivingBase shooter) {
+
+        if (shooter instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) shooter;
+
+            if (!(player.getHeldItemMainhand().getItem() instanceof ItemDraconiumBow)) {
+                player.sendMessage(new TextComponentString("§cCette flèche nécessite un arc Draconium."));
+                return null;
+            }
+        }
+
         return new EntitySwitchArrow(worldIn, shooter);
     }
 }

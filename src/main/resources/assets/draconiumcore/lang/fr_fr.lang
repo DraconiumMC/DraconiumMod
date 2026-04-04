@@ -110,6 +110,7 @@ tile.findium_ore.name=Minerai de Findium
 item.draconium_gear.name=Rouage en Draconium
 item.upgrade_speed.name=Amélioration de Vitesse
 item.upgrade_fortune.name=Amélioration de Fortune
+item.voidstone.name=Voidstone
 
 #ARC ET FLECHES
 item.draconium_bow.name=Arc en Draconium

@@ -35,8 +35,8 @@ public class BlockDraconiumFurnace extends BlockContainer
         super(Material.IRON);
         this.setTranslationKey(name);
         this.setRegistryName(name);
-        this.setHardness(5.0F);
-        this.setResistance(15.0F);
+        this.setHardness(8.0F);
+        this.setResistance(8.0F);
         this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_BLOCK);
 
         // Par défaut : Regarde au Nord et Eteint (false)

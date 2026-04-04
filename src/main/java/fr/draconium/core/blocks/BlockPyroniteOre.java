@@ -16,6 +16,8 @@ import net.minecraft.world.World;
 
 public class BlockPyroniteOre extends Block {
 
+  // niveau minimum de l’outil requis
+
     public BlockPyroniteOre(String name, Material materialIn) {
         super(materialIn);
         this.setTranslationKey(name);

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#F#",
+    "BEB",
+    "#F#"
+  ],
+  "key": {
+    "#": {
+      "item": "draconiumcore:draconium_block"
+    },
+    "B": {
+      "item": "minecraft:book"
+    },
+    "E": {
+      "item": "minecraft:enchanting_table"
+    },
+  "F": {
+    "item": "draconiumcore:findium_cristal"
+  }
+},
+  "result": {
+    "item": "draconiumcore:disenchanter",
+    "count": 1
+  }
+}

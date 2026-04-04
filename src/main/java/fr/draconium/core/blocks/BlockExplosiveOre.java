@@ -19,7 +19,7 @@ import net.minecraft.world.WorldServer;
 
 public class BlockExplosiveOre extends Block
 {
-
+  // niveau minimum de l’outil requis
 	public BlockExplosiveOre(String name, Material materialIn)
 	{
 		super(materialIn);
@@ -27,6 +27,8 @@ public class BlockExplosiveOre extends Block
 		this.setRegistryName(name);
 		this.setHardness(8.0F);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_BLOCK);
+        this.setHarvestLevel("pickaxe", 3);
+
 	}
 	
 	@Override

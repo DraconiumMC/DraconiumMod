@@ -34,6 +34,7 @@ public class OthersInit
     public static Item DRACONIUM_STICK;
     public static Item UPGRADE_SPEED;
     public static Item UPGRADE_FORTUNE;
+    public static Item VOIDSTONE;
 	
 	public static void init()
 	{
@@ -47,6 +48,7 @@ public class OthersInit
         others.add(DRACONIUM_STICK 		= new ItemBasic("draconium_stick").setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS));
         others.add(UPGRADE_SPEED = new ItemBasic("upgrade_speed").setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS).setMaxStackSize(64));
         others.add(UPGRADE_FORTUNE = new ItemBasic("upgrade_fortune").setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS).setMaxStackSize(64));
+        others.add(VOIDSTONE = new ItemVoidstone("voidstone").setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS));
     }
 
 		//others.add(TEST 				= new ItemTimer("test"));

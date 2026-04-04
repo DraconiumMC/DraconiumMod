@@ -20,7 +20,7 @@ public class DraconiqueArmor extends ItemArmor
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_ARMORS);
 	}
 	
-	public static boolean isAmrorComplet(EntityPlayer player)
+	public static boolean isArmorComplet(EntityPlayer player)
 	{
 	    return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem().equals(ArmorsInit.DRACONIQUE_HELMET) &&
 	    		player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem().equals(ArmorsInit.DRACONIQUE_CHESTPLATE) &&
@@ -31,7 +31,7 @@ public class DraconiqueArmor extends ItemArmor
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
-		if (this.isAmrorComplet(player) == true) this.handleDraconiqueArmorEffects(player);
+		if (this.isArmorComplet(player) == true) this.handleDraconiqueArmorEffects(player);
 		else return;
 	}
 	

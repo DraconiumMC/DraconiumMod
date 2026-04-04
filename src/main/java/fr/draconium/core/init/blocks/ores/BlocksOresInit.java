@@ -35,9 +35,9 @@ public class BlocksOresInit
 	
 	public static void init()
 	{
-		block_ores.add(PYRONITE_ORE 		= new BlockPyroniteOre("pyronite_ore", Material.ROCK));
-		block_ores.add(DRACONIUM_ORE 	= new BlockBasic("draconium_ore", Material.ROCK));
-		block_ores.add(FINDIUM_ORE 		= new BlockBasic("findium_ore", Material.ROCK));
+        block_ores.add(PYRONITE_ORE     = new BlockPyroniteOre("pyronite_ore", Material.ROCK));
+		block_ores.add(DRACONIUM_ORE 	= new BlockBasic("draconium_ore", Material.ROCK).setRequiredTool("pickaxe", 4));
+		block_ores.add(FINDIUM_ORE 		= new BlockBasic("findium_ore", Material.ROCK).setRequiredTool("pickaxe", 4));
 		block_ores.add(EXPLOSIVE_ORE 	= new BlockExplosiveOre("explosive_ore", Material.ROCK));
         block_ores.add(RANDOM_ORE 	= new BlockRandomOre("random_ore", Material.ROCK));
         block_ores.add(NETHER_PYRONITE_ORE = new BlockPyroniteOre("nether_pyronite_ore", Material.ROCK));
@@ -50,7 +50,7 @@ public class BlocksOresInit
 		
 		for (Block block_ore : block_ores)
 		{
-			event.getRegistry().registerAll(block_ore);
+			event.getRegistry().register(block_ore);
 			Console.debug("  - #6FF7D0" + block_ore.getRegistryName());
 		}
 	}
@@ -80,4 +80,7 @@ public class BlocksOresInit
 	{
 		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 	}
+
+
+
 }

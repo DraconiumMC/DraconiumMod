@@ -44,11 +44,11 @@ public class GuiDraconiumFurnace extends GuiContainer
 
         if (this.tileEntity.speedLevel > 0) {
             upgradeText = "Vitesse: " + this.tileEntity.speedLevel;
-            color = 0x00FFFF; // Cyan
+            color = 0x000000; // Cyan
         }
         else if (this.tileEntity.fortuneLevel > 0) {
             upgradeText = "Fortune: " + this.tileEntity.fortuneLevel;
-            color = 0xFFAA00; // Gold
+            color = 0x000000; // Gold
         }
 
         if (!upgradeText.isEmpty()) {

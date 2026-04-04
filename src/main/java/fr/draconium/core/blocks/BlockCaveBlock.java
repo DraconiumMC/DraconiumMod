@@ -15,7 +15,7 @@ public class BlockCaveBlock extends Block
 		super(materialIn);
 		this.setTranslationKey(name);
 		this.setRegistryName(name);
-		this.setHardness(5.0f);
+		this.setHardness(8.0f);
 		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_BLOCK);
 	}
 	

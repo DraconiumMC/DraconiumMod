@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class BlockDisenchanter extends BlockContainer
 {
-    // ID unique pour le GUI (Le four était 1, celui-là sera 2)
+    // ID unique pour le GUI (Le four était 1, celui-là sera 2).
     public static final int GUI_ID = 2;
 
     public BlockDisenchanter(String name)
@@ -25,7 +25,8 @@ public class BlockDisenchanter extends BlockContainer
         this.setRegistryName(name);
         this.setTranslationKey(name);
         this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_BLOCK);
-        this.setHardness(4.0F);
+        this.setHardness(8.0F);
+        this.setResistance(12.0F);
     }
 
     @Override

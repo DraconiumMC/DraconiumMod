@@ -22,13 +22,16 @@ import net.minecraft.world.World;
  */
 public class BlockRandomOre extends Block {
 
+ // niveau minimum de l’outil requis
+
     public BlockRandomOre(String name, Material materialIn) {
         super(materialIn);
         this.setRegistryName(name);
         this.setTranslationKey(name);
         this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_BLOCK);
         this.setHardness(8.0F);
-        this.setResistance(5.0F);
+        this.setResistance(8.0F);
+        this.setHarvestLevel("pickaxe", 2);
     }
 
     /**

@@ -82,7 +82,10 @@ public class DraconiumCore
 		{
 			// Keybinds
 			KeyBindings.init();
+
 		}
+
+
 
 		// Paquets réseau (OK des deux côtés)
 		DraconiumCorePackets.registerMessages();
@@ -121,10 +124,10 @@ public class DraconiumCore
 				true
 		);
 
+        serverProxy.registerClientOnlyRenders();
+
         GameRegistry.registerTileEntity(fr.draconium.core.blocks.tileentity.TileEntityDraconiumFurnace.class, new ResourceLocation(Reference.MODID, "draconium_furnace"));
         GameRegistry.registerTileEntity(fr.draconium.core.blocks.tileentity.TileEntityDisenchanter.class, new ResourceLocation(Reference.MODID, "disenchanter"));
-        MinecraftForge.EVENT_BUS.register(new BowEventHandler());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDisenchanter.class, new RenderDisenchanter());
         ModConfig.loadConfig(new File(event.getModConfigurationDirectory(), "draconiumcore.cfg"));
 	}
 
@@ -133,10 +136,9 @@ public class DraconiumCore
 	public void init(FMLInitializationEvent event)
 	{
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+        MinecraftForge.EVENT_BUS.register(new VoidstoneEventHandler());
         RecipesHandler.registerSmelting();
 		instance = this;
-		
-		serverProxy.register();
 	}
 	
 	@EventHandler

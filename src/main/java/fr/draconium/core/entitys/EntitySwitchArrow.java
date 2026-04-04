@@ -59,7 +59,7 @@ public class EntitySwitchArrow extends EntityTippedArrow {
             }
         }
 
-        // Supprime la flèche après impact pour ne pas qu'on puisse la ramasser
+        // Supprime la flèche après impact pour ne pas qu'on puisse la ramasser.
         this.setDead();
     }
 }

@@ -67,7 +67,7 @@ item.radar.name=Unclaim Finder
 item.regeneration_stick.name=Bâton de Régénération
 item.stick_of_god.name=Bâton de Dieu
 item.forge.bucketFilled.name=Seau de %s
-item.sponge_on_a_stick= Éponge sur un bâton
+item.sponge_on_a_stick.name= Éponge sur un bâton
 
 # NOURITURRE
 
@@ -110,6 +110,7 @@ tile.findium_ore.name=Minerai de Findium
 item.draconium_gear.name=Rouage en Draconium
 item.upgrade_speed.name=Amélioration de Vitesse
 item.upgrade_fortune.name=Amélioration de Fortune
+item.voidstone.name=Voidstone
 
 #ARC ET FLECHES
 item.draconium_bow.name=Arc en Draconium
@@ -118,9 +119,12 @@ item.switch_arrow.name= Fleches de déplacement
 
 #GROUPES
 
-itemGroup.draconium_block=§2Draconium Blocks
-itemGroup.draconium_food=Draconium Nourritures
-itemGroup.draconium_armor=Draconium Armures
-itemGroup.draconium_tool=Draconium Outils
-itemGroup.draconium_other=Draconium Autres
+itemGroup.draconium_block=Draconium | Blocs
+itemGroup.draconium_food=Draconium | Nourriture
+itemGroup.draconium_armor=Draconium | Armures
+itemGroup.draconium_tool=Draconium | Outils
+itemGroup.draconium_other=Draconium | Autres
+itemGroup.draconium_sticks=Draconium | Bâtons
+itemGroup.draconium_enchant=Draconium | Enchantements
+
 

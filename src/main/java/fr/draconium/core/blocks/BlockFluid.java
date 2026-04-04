@@ -33,7 +33,7 @@ public class BlockFluid extends BlockFluidClassic
         if (entityIn instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entityIn;
-            player.attackEntityFrom(DamageSource.GENERIC, 1.0F);
+            player.attackEntityFrom(DamageSource.GENERIC, 2.7F);
         }
     }
 

@@ -20,15 +20,15 @@ public class WorldGenCustomOres implements IWorldGenerator {
     // =======================================================================
     private static final List<OreGenParams> OVERWORLD_ORES = Arrays.asList(
             // 🔥 Pyronite — Génération spéciale près des lacs de lave
-            new OreGenParams(7, 5, 1, 15, BlocksOresInit.PYRONITE_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), WorldGenCustomOres::isNearLava),
+            new OreGenParams(4, 3, 1, 15, BlocksOresInit.PYRONITE_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), WorldGenCustomOres::isNearLava),
 
             // 💣 ExplosiveOre — Génération normale
-            new OreGenParams(3,4,1,30, BlocksOresInit.EXPLOSIVE_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), (w,r,p) -> true),
+            new OreGenParams(2,2,1,30, BlocksOresInit.EXPLOSIVE_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), (w,r,p) -> true),
 
             // 💎 Draconium — Génération normale
-            new OreGenParams(5, 3, 1, 12, BlocksOresInit.DRACONIUM_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), (w, r, p) -> true),
+            new OreGenParams(3, 2, 1, 12, BlocksOresInit.DRACONIUM_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), (w, r, p) -> true),
 
-            // ☠️ Noxium — Génération normale
+            // ☠️ Findium — Génération normale
             new OreGenParams(2, 2, 1, 7, BlocksOresInit.FINDIUM_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), (w, r, p) -> true),
 
             // 🌍 RandomOre — Génération classique aléatoire
@@ -105,7 +105,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
 
         public OreGenParams(int veinSize, int veinCount, int minY, int maxY,
                             IBlockState oreBlock, IBlockState targetBlock, OreCondition condition) {
-            this.generator = new WorldGenMinable(oreBlock, veinSize, BlockMatcher.forBlock(targetBlock.getBlock()));
+            this.generator = new WorldGenMinable(oreBlock, veinSize);
             this.veinCount = veinCount;
             this.minY = minY;
             this.maxY = maxY;
