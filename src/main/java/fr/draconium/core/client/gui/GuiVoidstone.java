@@ -2,6 +2,7 @@ package fr.draconium.core.client.gui;
 
 import fr.draconium.core.DraconiumCore;
 import fr.draconium.core.network.PacketVoidstone;
+import fr.draconium.core.proxy.packets.server.DraconiumCorePackets;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
@@ -16,7 +17,7 @@ public class GuiVoidstone extends GuiContainer {
     public GuiVoidstone(Container inventorySlotsIn) {
         super(inventorySlotsIn);
         this.xSize = 176;
-        this.ySize = 166;
+        this.ySize = 200;
     }
 
     @Override
@@ -53,7 +54,7 @@ public class GuiVoidstone extends GuiContainer {
     @Override
     protected void actionPerformed(GuiButton button) {
         // DraconiumNetwork.network est ton instance de SimpleNetworkWrapper
-        DraconiumCore.network.sendToServer(new PacketVoidstone(button.id));
+        DraconiumCorePackets.INSTANCE.sendToServer(new PacketVoidstone(button.id));
     }
 
     @Override
@@ -61,7 +62,19 @@ public class GuiVoidstone extends GuiContainer {
         this.mc.getTextureManager().bindTexture(TEXTURE);
         int i = (this.width - this.xSize) / 2;
         int j = (this.height - this.ySize) / 2;
-        drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);
+
+        // IMPORTANT : Si ta texture n'est pas un carré de 256x256,
+        // il faut utiliser drawModalRectWithCustomSizedTexture
+        drawModalRectWithCustomSizedTexture(
+                guiLeft,
+                guiTop + 10, // 👈 descend légèrement le GUI
+                0,
+                0,
+                xSize,
+                ySize,
+                256,
+                256
+        );
     }
 
     // Une classe de bouton qui n'affiche pas le rectangle gris de Minecraft

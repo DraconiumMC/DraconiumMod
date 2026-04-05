@@ -1,5 +1,7 @@
 package fr.draconium.core.proxy.packets.server;
 
+import fr.draconium.core.network.PacketVoidstone;
+import fr.draconium.core.network.PacketVoidstoneHandler;
 import fr.draconium.core.references.Reference;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -10,7 +12,6 @@ import net.minecraftforge.fml.relauncher.Side;
 public class DraconiumCorePackets
 {
 	private static int packetId = 0;
-
 	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MODID);
 
 	public static void registerMessages()

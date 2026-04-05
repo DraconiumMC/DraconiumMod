@@ -55,7 +55,6 @@ import java.rmi.registry.RegistryHandler;
 public class DraconiumCore
 {
 	public static DraconiumCore instance;
-    public static final SimpleNetworkWrapper NETWORK = NetworkRegistry.INSTANCE.newSimpleChannel("draconiumcore");
 	@SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.SERVER, modId = Reference.MODID)
 	private static ServerProxy serverProxy;
 	
@@ -142,7 +141,6 @@ public class DraconiumCore
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
         MinecraftForge.EVENT_BUS.register(new VoidstoneEventHandler());
         RecipesHandler.registerSmelting();
-        NETWORK.registerMessage(PacketVoidstoneHandler.class, PacketVoidstone.class, id++, Side.SERVER);
 		instance = this;
 	}
 	
