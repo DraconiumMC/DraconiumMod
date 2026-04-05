@@ -1,5 +1,6 @@
 package fr.draconium.core.proxy;
 
+import fr.draconium.core.DraconiumCore;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -11,7 +12,7 @@ public class ServerProxy
 
     public void preInit(FMLPreInitializationEvent event)
     {
-        // Logique de Pre-initialisation commune au Serveur
+
     }
 
     public void init(FMLInitializationEvent event)

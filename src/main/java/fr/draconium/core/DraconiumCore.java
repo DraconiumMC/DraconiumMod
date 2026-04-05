@@ -4,10 +4,13 @@ import fr.draconium.core.blocks.tileentity.TileEntityDisenchanter;
 import fr.draconium.core.client.render.RenderDisenchanter;
 import fr.draconium.core.handlers.*;
 import fr.draconium.core.init.enchants.EnchantementsInit;
+import fr.draconium.core.network.PacketVoidstone;
+import fr.draconium.core.network.PacketVoidstoneHandler;
 import fr.draconium.core.worlds.ModConfig;
 import fr.draconium.core.worlds.generation.WorldGenCustomOres;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
@@ -52,7 +55,7 @@ import java.rmi.registry.RegistryHandler;
 public class DraconiumCore
 {
 	public static DraconiumCore instance;
-	
+    public static final SimpleNetworkWrapper NETWORK = NetworkRegistry.INSTANCE.newSimpleChannel("draconiumcore");
 	@SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.SERVER, modId = Reference.MODID)
 	private static ServerProxy serverProxy;
 	
@@ -135,9 +138,11 @@ public class DraconiumCore
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+        int id = 0;
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
         MinecraftForge.EVENT_BUS.register(new VoidstoneEventHandler());
         RecipesHandler.registerSmelting();
+        NETWORK.registerMessage(PacketVoidstoneHandler.class, PacketVoidstone.class, id++, Side.SERVER);
 		instance = this;
 	}
 	

@@ -1,5 +1,7 @@
 package fr.draconium.core.client.gui;
 
+import fr.draconium.core.DraconiumCore;
+import fr.draconium.core.network.PacketVoidstone;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
@@ -32,29 +34,26 @@ public class GuiVoidstone extends GuiContainer {
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         this.drawDefaultBackground();
         super.drawScreen(mouseX, mouseY, partialTicks);
+
+        // On boucle sur tous les boutons pour voir si la souris est dessus
+        for (GuiButton button : this.buttonList) {
+            if (button.isMouseOver()) {
+                if (button.id == 1) {
+                    this.drawHoveringText("§aAméliorer la capacité (Coût: 1 Diamant)", mouseX, mouseY);
+                } else if (button.id == 2) {
+                    this.drawHoveringText("§cConcasser 1000 Cobblestone", mouseX, mouseY);
+                }
+            }
+        }
+
         this.renderHoveredToolTip(mouseX, mouseY);
-
-        int i = (this.width - this.xSize) / 2;
-        int j = (this.height - this.ySize) / 2;
-
-        // Si la souris est sur le bouton 1 (Améliorer)
-        if (mouseX >= i + 38 && mouseX <= i + 60 && mouseY >= j + 35 && mouseY <= j + 57) {
-            this.drawHoveringText("§aAméliorer la capacité (Coût: 1 Diamant)", mouseX, mouseY);
-        }
-
-        // Si la souris est sur le bouton 2 (Concasser)
-        if (mouseX >= i + 116 && mouseX <= i + 138 && mouseY >= j + 35 && mouseY <= j + 57) {
-            this.drawHoveringText("§cConcasser 1000 Cobblestone", mouseX, mouseY);
-        }
     }
 
+    // Dans actionPerformed
     @Override
-    protected void actionPerformed(GuiButton button) throws IOException {
-        if (button.id == 2) {// Envoyer un Packet au serveur pour dire "Le joueur veut améliorer"
-            this.mc.playerController.sendEnchantPacket(this.inventorySlots.windowId, 2);
-        } else if (button.id == 2) {
-            // Envoyer un Packet pour le concassage
-        }
+    protected void actionPerformed(GuiButton button) {
+        // DraconiumNetwork.network est ton instance de SimpleNetworkWrapper
+        DraconiumCore.network.sendToServer(new PacketVoidstone(button.id));
     }
 
     @Override

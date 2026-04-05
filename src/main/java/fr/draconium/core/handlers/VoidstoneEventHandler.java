@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -12,26 +13,55 @@ public class VoidstoneEventHandler {
 
     @SubscribeEvent
     public void onHarvest(BlockEvent.HarvestDropsEvent event) {
-        if (event.getHarvester() == null) return;
+        EntityPlayer player = event.getHarvester();
+        if (player == null || event.isCanceled()) return;
 
         Block block = event.getState().getBlock();
-        // On vérifie si ce qui tombe est de la pierre ou de la cobble
+
+        // 1. Optimisation : On vérifie le bloc AVANT de chercher dans l'inventaire
         if (block == Blocks.STONE || block == Blocks.COBBLESTONE) {
-            EntityPlayer player = event.getHarvester();
 
-            for (ItemStack invStack : player.inventory.mainInventory) {
-                if (!invStack.isEmpty() && invStack.getItem() instanceof ItemVoidstone) {
-                    // On récupère le nombre de blocs qui allaient tomber (ex: 9 avec un hammer)
-                    int amount = event.getDrops().size();
-                    if (amount == 0) amount = 1; // Sécurité
+            // 2. Priorité à la main : C'est beaucoup plus efficient
+            ItemStack voidStack = getVoidstone(player);
 
-                    ((ItemVoidstone) invStack.getItem()).addCobble(invStack, amount);
+            if (!voidStack.isEmpty()) {
+                ItemVoidstone item = (ItemVoidstone) voidStack.getItem();
 
-                    // On vide la liste des drops pour que rien ne tombe au sol
+                // On calcule le nombre total d'items qui allaient tomber
+                int amount = 0;
+                for (ItemStack drop : event.getDrops()) {
+                    amount += drop.getCount();
+                }
+
+                if (amount > 0) {
+                    item.addCobble(voidStack, amount);
+                    // On vide les drops pour que rien ne tombe au sol
                     event.getDrops().clear();
-                    break;
                 }
             }
         }
+    }
+
+    /**
+     * Méthode utilitaire pour trouver la Voidstone efficacement
+     */
+    private ItemStack getVoidstone(EntityPlayer player) {
+        // On check la main principale
+        ItemStack main = player.getHeldItemMainhand();
+        if (!main.isEmpty() && main.getItem() instanceof ItemVoidstone) return main;
+
+        // On check la main secondaire (Offhand)
+        ItemStack off = player.getHeldItemOffhand();
+        if (!off.isEmpty() && off.getItem() instanceof ItemVoidstone) return off;
+
+        // SEULEMENT SI PAS DANS LES MAINS : On parcourt l'inventaire
+        // C'est ici qu'on gagne en performance
+        for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+            ItemStack stack = player.inventory.getStackInSlot(i);
+            if (!stack.isEmpty() && stack.getItem() instanceof ItemVoidstone) {
+                return stack;
+            }
+        }
+        return ItemStack.EMPTY;
     }
 }
