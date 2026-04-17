@@ -16,8 +16,8 @@ public class GuiVoidstone extends GuiContainer {
 
     public GuiVoidstone(Container inventorySlotsIn) {
         super(inventorySlotsIn);
-        this.xSize = 176;
-        this.ySize = 200;
+        this.xSize = 360;
+        this.ySize = 317;
     }
 
     @Override
@@ -72,8 +72,8 @@ public class GuiVoidstone extends GuiContainer {
                 0,
                 xSize,
                 ySize,
-                256,
-                256
+                xSize,
+                ySize
         );
     }
 
