@@ -5,6 +5,7 @@ import fr.draconium.core.network.PacketVoidstone;
 import fr.draconium.core.proxy.packets.server.DraconiumCorePackets;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
 
@@ -16,8 +17,8 @@ public class GuiVoidstone extends GuiContainer {
 
     public GuiVoidstone(Container inventorySlotsIn) {
         super(inventorySlotsIn);
-        this.xSize = 360;
-        this.ySize = 317;
+        this.xSize = 196;
+        this.ySize = 178;
     }
 
     @Override
@@ -59,6 +60,7 @@ public class GuiVoidstone extends GuiContainer {
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F); // 👈 important
         this.mc.getTextureManager().bindTexture(TEXTURE);
         int i = (this.width - this.xSize) / 2;
         int j = (this.height - this.ySize) / 2;
@@ -67,7 +69,7 @@ public class GuiVoidstone extends GuiContainer {
         // il faut utiliser drawModalRectWithCustomSizedTexture
         drawModalRectWithCustomSizedTexture(
                 guiLeft,
-                guiTop + 10, // 👈 descend légèrement le GUI
+                guiTop,
                 0,
                 0,
                 xSize,

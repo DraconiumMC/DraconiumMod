@@ -127,4 +127,29 @@ itemGroup.draconium_other=Draconium | Autres
 itemGroup.draconium_sticks=Draconium | Bâtons
 itemGroup.draconium_enchant=Draconium | Enchantements
 
+# PRIMAL AVATARS
+key.categories.draconiummod=Draconium
+key.primal_ability=Primal Avatar ability
+
+item.primal_pig_helmet.name=Pig essence helmet
+item.primal_pig_chestplate.name=Pig essence chestplate
+item.primal_pig_leggings.name=Pig essence leggings
+item.primal_pig_boots.name=Pig essence boots
+item.primal_zombie_helmet.name=Zombie essence helmet
+item.primal_zombie_chestplate.name=Zombie essence chestplate
+item.primal_zombie_leggings.name=Zombie essence leggings
+item.primal_zombie_boots.name=Zombie essence boots
+item.primal_enderman_helmet.name=Enderman essence helmet
+item.primal_enderman_chestplate.name=Enderman essence chestplate
+item.primal_enderman_leggings.name=Enderman essence leggings
+item.primal_enderman_boots.name=Enderman essence boots
+item.primal_salmon_helmet.name=Fish essence helmet
+item.primal_salmon_chestplate.name=Fish essence chestplate
+item.primal_salmon_leggings.name=Fish essence leggings
+item.primal_salmon_boots.name=Fish essence boots
+item.primal_ghast_helmet.name=Ghast essence helmet
+item.primal_ghast_chestplate.name=Ghast essence chestplate
+item.primal_ghast_leggings.name=Ghast essence leggings
+item.primal_ghast_boots.name=Ghast essence boots
+
 

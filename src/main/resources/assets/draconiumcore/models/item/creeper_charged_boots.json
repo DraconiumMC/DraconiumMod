@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "draconiumcore:items/armors/creeper_charged/creeper_charged_boots"
+    }
+}

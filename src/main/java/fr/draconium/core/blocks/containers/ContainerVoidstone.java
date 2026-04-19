@@ -16,15 +16,21 @@ public class ContainerVoidstone extends Container {
 
         // --- AFFICHAGE DE L'INVENTAIRE PRINCIPAL (3 lignes de 9) ---
         // Ces chiffres (8, 84, etc.) doivent correspondre au dessin de tes cases
+        // Inventaire principal (3 lignes x 9)
+        // Inventaire principal
         for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 9; ++col) {
-                this.addSlotToContainer(new Slot(playerInv, col + row * 9 + 9, 8 + col * 18, 84 + row * 18));
+                this.addSlotToContainer(new Slot(playerInv, col + row * 9 + 9,
+                        18 + col * 18,
+                        97+ row * 18));
             }
         }
 
-        // --- AFFICHAGE DE LA BARRE D'INVENTAIRE RAPIDE (Hotbar) ---
+// Hotbar
         for (int col = 0; col < 9; ++col) {
-            this.addSlotToContainer(new Slot(playerInv, col, 8 + col * 18, 142));
+            this.addSlotToContainer(new Slot(playerInv, col,
+                    18 + col * 18,
+                    155));
         }
     }
 

@@ -23,6 +23,7 @@ public class ExtendedPlayerData implements ICapabilitySerializable<NBTTagCompoun
     public static Capability<ExtendedPlayerData> CAPABILITY = null;
 
     public final DraconiumArmorAbilities draconiumArmorAbilities = new DraconiumArmorAbilities();
+    public final PrimalAvatarAbilityState primalAvatarAbility = new PrimalAvatarAbilityState();
 
     @Override
     public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing) {
@@ -42,12 +43,16 @@ public class ExtendedPlayerData implements ICapabilitySerializable<NBTTagCompoun
     public NBTTagCompound serializeNBT() {
         NBTTagCompound compound = new NBTTagCompound();
         compound.setTag("draconiumArmorAbilities", this.draconiumArmorAbilities.serializeNBT());
+        compound.setTag("primalAvatarAbility", this.primalAvatarAbility.serializeNBT());
         return compound;
     }
 
     @Override
     public void deserializeNBT(NBTTagCompound nbt) {
         this.draconiumArmorAbilities.deserializeNBT(nbt.getCompoundTag("draconiumArmorAbilities"));
+        if (nbt.hasKey("primalAvatarAbility")) {
+            this.primalAvatarAbility.deserializeNBT(nbt.getCompoundTag("primalAvatarAbility"));
+        }
     }
 
     public void tick() {
@@ -139,6 +144,42 @@ public class ExtendedPlayerData implements ICapabilitySerializable<NBTTagCompoun
         private void tick() {
             // Seule la variable non persistante (si tu en as d'autres) devrait être décrémentée ici.
             // On laisse le corps de la méthode vide, car le décompte est fait par comparaison dans le Packet Handler.
+        }
+    }
+
+    public static class PrimalAvatarAbilityState implements INBTSerializable<NBTTagCompound> {
+        private long nextAbilityUseWorldTick;
+        private int lastMorphOrdinal;
+
+        @Override
+        public NBTTagCompound serializeNBT() {
+            NBTTagCompound c = new NBTTagCompound();
+            c.setLong("nextAbility", this.nextAbilityUseWorldTick);
+            c.setInteger("lastMorph", this.lastMorphOrdinal);
+            return c;
+        }
+
+        @Override
+        public void deserializeNBT(NBTTagCompound nbt) {
+            this.nextAbilityUseWorldTick = nbt.getLong("nextAbility");
+            this.lastMorphOrdinal = nbt.getInteger("lastMorph");
+        }
+
+
+        public long getNextAbilityUseWorldTick() {
+            return this.nextAbilityUseWorldTick;
+        }
+
+        public void setNextAbilityUseWorldTick(long nextAbilityUseWorldTick) {
+            this.nextAbilityUseWorldTick = nextAbilityUseWorldTick;
+        }
+
+        public int getLastMorphOrdinal() {
+            return this.lastMorphOrdinal;
+        }
+
+        public void setLastMorphOrdinal(int lastMorphOrdinal) {
+            this.lastMorphOrdinal = lastMorphOrdinal;
         }
     }
 }

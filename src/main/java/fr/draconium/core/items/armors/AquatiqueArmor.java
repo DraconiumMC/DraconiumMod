@@ -12,31 +12,31 @@ import net.minecraft.world.World;
 
 public class AquatiqueArmor extends ItemArmor
 {
-	
-	public AquatiqueArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
-	{
-		super(materialIn, renderIndexIn, equipmentSlotIn);
-		this.setTranslationKey(name);
-		this.setRegistryName(name);
-		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_ARMORS);
-	}
-	
-	@Override
-	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
-	{
-		if (this.isAmrorComplet(player) == true) this.handleAquatiqueArmorEffects(player);
-	}
-	
-	
-	protected boolean isAmrorComplet(EntityPlayer player)
-	{
-		return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem().equals(ArmorsInit.AQUATIQUE_HELMET);
-	}
-	
-	private void handleAquatiqueArmorEffects(EntityPlayer player)
-	{
-		player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 300, 0, true, true)); 	// 300 ticks 	= 15 secondes
-	}
-	
-	
+
+    public AquatiqueArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
+    {
+        super(materialIn, renderIndexIn, equipmentSlotIn);
+        this.setTranslationKey(name);
+        this.setRegistryName(name);
+        this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_ARMORS);
+    }
+
+    @Override
+    public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
+    {
+        if (this.isAmrorComplet(player) == true) this.handleAquatiqueArmorEffects(player);
+    }
+
+
+    protected boolean isAmrorComplet(EntityPlayer player)
+    {
+        return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem().equals(ArmorsInit.AQUATIQUE_HELMET);
+    }
+
+    private void handleAquatiqueArmorEffects(EntityPlayer player)
+    {
+        player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 300, 0, true, true)); 	// 300 ticks 	= 15 secondes
+    }
+
+
 }

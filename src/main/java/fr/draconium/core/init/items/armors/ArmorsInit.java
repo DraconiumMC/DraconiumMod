@@ -3,10 +3,7 @@ package fr.draconium.core.init.items.armors;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.draconium.core.items.armors.AquatiqueArmor;
-import fr.draconium.core.items.armors.ArmorBasic;
-import fr.draconium.core.items.armors.DraconiqueArmor;
-import fr.draconium.core.items.armors.DraconiumArmor;
+import fr.draconium.core.items.armors.*;
 import fr.draconium.core.materials.ArmorsMaterial;
 import fr.draconium.core.messages.Console;
 import fr.draconium.core.references.Reference;
@@ -15,9 +12,11 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class ArmorsInit
@@ -61,7 +60,7 @@ public class ArmorsInit
 		
 		armors.add(AQUATIQUE_HELMET 		= new AquatiqueArmor("aquatique_helmet", ArmorsMaterial.MATERIAL_AQUATIQUE, 1, EntityEquipmentSlot.HEAD));
 	}
-	
+
 	@SubscribeEvent
 	protected static void registerItems(RegistryEvent.Register<Item> event)
 	{

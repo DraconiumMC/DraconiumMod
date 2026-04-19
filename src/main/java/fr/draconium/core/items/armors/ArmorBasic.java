@@ -6,11 +6,11 @@ import net.minecraft.item.ItemArmor;
 
 public class ArmorBasic extends ItemArmor
 {
-	public ArmorBasic(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
-	{
-		super(materialIn, renderIndexIn, equipmentSlotIn);
-		this.setTranslationKey(name);
-		this.setRegistryName(name);
-		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_ARMORS);
-	}
+    public ArmorBasic(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
+    {
+        super(materialIn, renderIndexIn, equipmentSlotIn);
+        this.setTranslationKey(name);
+        this.setRegistryName(name);
+        this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_ARMORS);
+    }
 }

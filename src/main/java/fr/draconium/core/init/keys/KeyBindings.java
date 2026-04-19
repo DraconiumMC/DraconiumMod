@@ -1,5 +1,6 @@
 package fr.draconium.core.init.keys;
 
+import fr.draconium.core.primal.network.PrimalNetwork;
 import org.lwjgl.input.Keyboard;
 
 import fr.draconium.core.references.Reference;
@@ -22,12 +23,14 @@ public class KeyBindings
 	public static final KeyBinding TELEPORT_KEY      = new KeyBinding("key.teleport", Keyboard.KEY_T, "key.categories.draconiummod");
 	public static final KeyBinding ENERGY_SHIELD_KEY = new KeyBinding("key.energy_shield", Keyboard.KEY_Y, "key.categories.draconiummod");
 	public static final KeyBinding SPAWN_ALLIES_KEY  = new KeyBinding("key.spawn_allies", Keyboard.KEY_U, "key.categories.draconiummod");
+	public static final KeyBinding PRIMAL_ABILITY_KEY = new KeyBinding("key.primal_ability", Keyboard.KEY_G, "key.categories.draconiummod");
 
 	public static void init()
 	{
 		ClientRegistry.registerKeyBinding(TELEPORT_KEY);
 		ClientRegistry.registerKeyBinding(ENERGY_SHIELD_KEY);
 		ClientRegistry.registerKeyBinding(SPAWN_ALLIES_KEY);
+		ClientRegistry.registerKeyBinding(PRIMAL_ABILITY_KEY);
 	}
 
 	@SubscribeEvent
@@ -39,5 +42,7 @@ public class KeyBindings
 			DraconiumCorePackets.INSTANCE.sendToServer(new EnergyShieldPacket());
 		else if (SPAWN_ALLIES_KEY.isPressed())
 			DraconiumCorePackets.INSTANCE.sendToServer(new SpawnWolfPacket());
+        else if (PRIMAL_ABILITY_KEY.isPressed())
+            DraconiumCorePackets.INSTANCE.sendToServer(new PrimalNetwork.PacketRequest());
 	}
 }

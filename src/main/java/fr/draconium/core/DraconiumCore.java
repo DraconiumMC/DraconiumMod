@@ -4,8 +4,10 @@ import fr.draconium.core.blocks.tileentity.TileEntityDisenchanter;
 import fr.draconium.core.client.render.RenderDisenchanter;
 import fr.draconium.core.handlers.*;
 import fr.draconium.core.init.enchants.EnchantementsInit;
+import fr.draconium.core.init.items.armors.PrimalAvatarsInit;
 import fr.draconium.core.network.PacketVoidstone;
 import fr.draconium.core.network.PacketVoidstoneHandler;
+import fr.draconium.core.primal.network.PrimalNetwork;
 import fr.draconium.core.worlds.ModConfig;
 import fr.draconium.core.worlds.generation.WorldGenCustomOres;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -102,6 +104,7 @@ public class DraconiumCore
 		// Items
 		FoodsInit.init();
 		ArmorsInit.init();
+        PrimalAvatarsInit.init();
 		OresInit.init();
 		ToolsInit.init();
 		SwordsInit.init();

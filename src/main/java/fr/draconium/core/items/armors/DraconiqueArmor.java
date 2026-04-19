@@ -12,34 +12,34 @@ import net.minecraft.world.World;
 
 public class DraconiqueArmor extends ItemArmor
 {
-	public DraconiqueArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
-	{
-		super(materialIn, renderIndexIn, equipmentSlotIn);
-		this.setTranslationKey(name);
-		this.setRegistryName(name);
-		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_ARMORS);
-	}
-	
-	public static boolean isArmorComplet(EntityPlayer player)
-	{
-	    return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem().equals(ArmorsInit.DRACONIQUE_HELMET) &&
-	    		player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem().equals(ArmorsInit.DRACONIQUE_CHESTPLATE) &&
-	    		player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem().equals(ArmorsInit.DRACONIQUE_LEGGINGS) &&
-	    		player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem().equals(ArmorsInit.DRACONIQUE_BOOTS);
-	}
-	
-	@Override
-	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
-	{
-		if (this.isArmorComplet(player) == true) this.handleDraconiqueArmorEffects(player);
-		else return;
-	}
-	
-	private void handleDraconiqueArmorEffects(EntityPlayer player)
-	{
-		player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 300, 0, true, true)); 		// 300 ticks 	= 15 secondes
-		player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 20, 0, true, true)); 		// 20 ticks 	= 1 seconde
-		player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 20, 0, true, true)); 				// 20 ticks 	= 1 seconde
-		player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 20, 0, true, true)); 				// 20 ticks 	= 1 seconde
-	}
+    public DraconiqueArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
+    {
+        super(materialIn, renderIndexIn, equipmentSlotIn);
+        this.setTranslationKey(name);
+        this.setRegistryName(name);
+        this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_ARMORS);
+    }
+
+    public static boolean isArmorComplet(EntityPlayer player)
+    {
+        return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem().equals(ArmorsInit.DRACONIQUE_HELMET) &&
+                player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem().equals(ArmorsInit.DRACONIQUE_CHESTPLATE) &&
+                player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem().equals(ArmorsInit.DRACONIQUE_LEGGINGS) &&
+                player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem().equals(ArmorsInit.DRACONIQUE_BOOTS);
+    }
+
+    @Override
+    public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
+    {
+        if (this.isArmorComplet(player) == true) this.handleDraconiqueArmorEffects(player);
+        else return;
+    }
+
+    private void handleDraconiqueArmorEffects(EntityPlayer player)
+    {
+        player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 300, 0, true, true)); 		// 300 ticks 	= 15 secondes
+        player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 20, 0, true, true)); 		// 20 ticks 	= 1 seconde
+        player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 20, 0, true, true)); 				// 20 ticks 	= 1 seconde
+        player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 20, 0, true, true)); 				// 20 ticks 	= 1 seconde
+    }
 }

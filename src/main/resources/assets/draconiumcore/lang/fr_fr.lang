@@ -125,3 +125,28 @@ itemGroup.draconium_armor=Draconium Armures
 itemGroup.draconium_tool=Draconium Outils
 itemGroup.draconium_other=Draconium Autres
 
+# PRIMAL AVATARS
+key.categories.draconiummod=Draconium
+key.primal_ability=Capacité Primal Avatar
+
+item.primal_pig_helmet.name=Casque d'essence (Cochon)
+item.primal_pig_chestplate.name=Plastron d'essence (Cochon)
+item.primal_pig_leggings.name=Jambières d'essence (Cochon)
+item.primal_pig_boots.name=Bottes d'essence (Cochon)
+item.primal_zombie_helmet.name=Casque d'essence (Zombie)
+item.primal_zombie_chestplate.name=Plastron d'essence (Zombie)
+item.primal_zombie_leggings.name=Jambières d'essence (Zombie)
+item.primal_zombie_boots.name=Bottes d'essence (Zombie)
+item.primal_enderman_helmet.name=Casque d'essence (Enderman)
+item.primal_enderman_chestplate.name=Plastron d'essence (Enderman)
+item.primal_enderman_leggings.name=Jambières d'essence (Enderman)
+item.primal_enderman_boots.name=Bottes d'essence (Enderman)
+item.primal_salmon_helmet.name=Casque d'essence (Poisson)
+item.primal_salmon_chestplate.name=Plastron d'essence (Poisson)
+item.primal_salmon_leggings.name=Jambières d'essence (Poisson)
+item.primal_salmon_boots.name=Bottes d'essence (Poisson)
+item.primal_ghast_helmet.name=Casque d'essence (Ghast)
+item.primal_ghast_chestplate.name=Plastron d'essence (Ghast)
+item.primal_ghast_leggings.name=Jambières d'essence (Ghast)
+item.primal_ghast_boots.name=Bottes d'essence (Ghast)
+

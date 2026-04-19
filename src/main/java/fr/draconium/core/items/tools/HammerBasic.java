@@ -126,15 +126,33 @@ public class HammerBasic extends ItemPickaxe
 		breaker.damageItem(1, entity);
 		return super.onBlockDestroyed(breaker, world, state, position, entity);
 	}
-	
-	private void destroyAndDropBlock(World world, EntityPlayer player, ItemStack breaker, int x, int y, int z)
-	{
-		BlockPos position = new BlockPos(x, y, z);
 
-		if (world.getBlockState(position).getBlockHardness(world, position) >= 0 && world.getBlockState(position).getBlock().getMaterial(world.getBlockState(position).getBlock().getDefaultState()) == Material.ROCK)
-		{
-			world.getBlockState(position).getBlock().harvestBlock(world, player, position, world.getBlockState(position), world.getTileEntity(position), breaker);
-			world.setBlockToAir(position);
-		}
-	}
+    private void destroyAndDropBlock(World world, EntityPlayer player, ItemStack breaker, int x, int y, int z)
+    {
+        BlockPos position = new BlockPos(x, y, z);
+        IBlockState blockState = world.getBlockState(position);
+
+        // Ne pas miner les minerais voisins
+        if (blockState.getBlock() == Blocks.COAL_ORE
+                || blockState.getBlock() == Blocks.IRON_ORE
+                || blockState.getBlock() == Blocks.GOLD_ORE
+                || blockState.getBlock() == Blocks.DIAMOND_ORE
+                || blockState.getBlock() == Blocks.REDSTONE_ORE
+                || blockState.getBlock() == Blocks.LAPIS_ORE
+                || blockState.getBlock() == Blocks.EMERALD_ORE
+                || blockState.getBlock() == Blocks.QUARTZ_ORE
+                || blockState.getBlock() == BlocksOresInit.PYRONITE_ORE
+                || blockState.getBlock() == BlocksOresInit.DRACONIUM_ORE
+                || blockState.getBlock() == BlocksOresInit.FINDIUM_ORE)
+        {
+            return; // Skip les minerais
+        }
+
+        if (blockState.getBlockHardness(world, position) >= 0
+                && blockState.getBlock().getMaterial(blockState.getBlock().getDefaultState()) == Material.ROCK)
+        {
+            blockState.getBlock().harvestBlock(world, player, position, blockState, world.getTileEntity(position), breaker);
+            world.setBlockToAir(position);
+        }
+    }
 }
