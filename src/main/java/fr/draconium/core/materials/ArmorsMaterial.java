@@ -22,5 +22,5 @@ public class ArmorsMaterial
 	/** Armures Primal Avatars — textures d'armure réutilisées (pyronite) en attendant des assets dédiés */
 	public static final ArmorMaterial MATERIAL_PRIMAL_AVATAR =
 			EnumHelper.addArmorMaterial("armor_material_primal_avatar", Reference.MODID + ":pyronite", 200,
-					new int[] { 3, 6, 5, 3 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+					new int[] { 2, 5, 4, 2 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
 }

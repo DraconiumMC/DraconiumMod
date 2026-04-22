@@ -1,37 +1,77 @@
 package fr.draconium.core.items.armors;
 
+import fr.draconium.core.DraconiumCore;
 import fr.draconium.core.materials.ArmorsMaterial;
 import fr.draconium.core.primal.PrimalAvatarType;
-import fr.draconium.core.references.Reference;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
+
+import javax.annotation.Nullable;
 
 public class PrimalAvatarArmorItem extends ArmorBasic {
 
     private final PrimalAvatarType avatarType;
 
     public PrimalAvatarArmorItem(PrimalAvatarType avatarType, String registryName, EntityEquipmentSlot slot) {
-        // On passe le registryName au super (ArmorBasic)
+        // On passe les paramètres à ArmorBasic (Super)
         super(registryName, ArmorsMaterial.MATERIAL_PRIMAL_AVATAR, 1, slot);
         this.avatarType = avatarType;
 
-        // On définit explicitement les noms ici pour éviter les erreurs ailleurs
+        // Nom de traduction interne
         this.setTranslationKey(registryName);
+
+        // IMPORTANT : On définit l'onglet ici MAIS on le filtre plus bas
+        this.setCreativeTab(null);
     }
 
+    /**
+     * Gère l'affichage dans l'inventaire créatif.
+     * Cette méthode est le verrou qui empêche l'item de "baver" dans les autres onglets.
+     */
+    @Override
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+    }
+
+    /**
+     * Indique au moteur de recherche de Minecraft si l'item appartient à l'onglet consulté.
+     */
+    @Override
+    public boolean isInCreativeTab(CreativeTabs targetTab) {
+        // Autorise l'onglet de recherche global
+        if (targetTab == CreativeTabs.SEARCH) return true;
+
+        // Autorise uniquement l'onglet ARMORS de ton mod
+        return targetTab == DraconiumCore.DRACONIUM_TAB_ARMORS;
+    }
+
+    /**
+     * Retourne l'onglet officiel pour cet item.
+     */
+    @Nullable
+    @Override
+    public CreativeTabs getCreativeTab() {
+        return DraconiumCore.DRACONIUM_TAB_ARMORS;
+    }
+
+    /**
+     * Gère le rendu 3D de l'armure sur le corps du joueur.
+     */
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-        // Détermine le layer (1 pour casque/plastron/bottes, 2 pour jambières)
+        // Layer 2 pour les jambes (leggings), Layer 1 pour le reste
         String layer = (slot == EntityEquipmentSlot.LEGS) ? "2" : "1";
 
-        // Récupère le nom du mob depuis le nom de l'item (ex: "creeper_helmet" -> "creeper")
-        String registryPath = this.getRegistryName().getPath();
-        String mobName = registryPath.substring(0, registryPath.lastIndexOf('_'));
+        // On récupère le nom propre du mob depuis le nom d'enregistrement
+        // Exemple : "creeper_helmet" devient "creeper"
+        String path = this.getRegistryName().getPath();
+        String mobName = path.substring(0, path.lastIndexOf('_'));
 
-        // On enlève les underscores pour coller à tes noms de fichiers (ex: iron_golem -> irongolem)
-        // SI tes fichiers PNG s'appellent "iron_golem_layer_1", enlève le .replace("_", "")
-        mobName = mobName.replace("_", "");
+        // NOTE : Si tes fichiers s'appellent "irongolem" sans underscore,
+        // décommente la ligne suivante :
+        // mobName = mobName.replace("_", "");
 
         return "draconiumcore:textures/models/armor/" + mobName + "_layer_" + layer + ".png";
     }

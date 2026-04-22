@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.PrintWriter;
 
 import fr.draconium.core.items.armors.PrimalAvatarArmorItem;
+import fr.draconium.core.messages.Console;
 import fr.draconium.core.primal.PrimalAvatarType;
 import fr.draconium.core.references.Reference;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -25,6 +26,7 @@ public class PrimalAvatarsInit {
     public static void init() {
         // Enregistre ici tous tes mobs (Nom du dossier texture)
         registerSet(PrimalAvatarType.CREEPER, "creeper");
+        registerSet(PrimalAvatarType.CREEPER_CHARGED   , "creeper_charged");
         registerSet(PrimalAvatarType.GHAST, "ghast");
         registerSet(PrimalAvatarType.ZOMBIE, "zombie");
         registerSet(PrimalAvatarType.ENDERMAN, "enderman");
@@ -32,19 +34,21 @@ public class PrimalAvatarsInit {
         registerSet(PrimalAvatarType.PIG_ZOMBIE, "pig_zombie");
         registerSet(PrimalAvatarType.BLAZE, "blaze");
         registerSet(PrimalAvatarType.SKELETON, "skeleton");
+        registerSet(PrimalAvatarType. WITHER  , "wither");
+        registerSet(PrimalAvatarType.ENDER_DRAGON, "ender_dragon");
         registerSet(PrimalAvatarType.WITHER_SKELETON, "wither_skeleton");
         registerSet(PrimalAvatarType.SPIDER, "spider");
         registerSet(PrimalAvatarType.WITCH, "witch");
-        registerSet(PrimalAvatarType.COW, "cow");
+        //registerSet(PrimalAvatarType.COW, "cow");
         registerSet(PrimalAvatarType.PIG, "pig");
-        registerSet(PrimalAvatarType.SHEEP, "sheep");
-        registerSet(PrimalAvatarType.CHICKEN, "chicken");
-        registerSet(PrimalAvatarType.SQUID, "squid");
+        //registerSet(PrimalAvatarType.SHEEP, "sheep");
+        //registerSet(PrimalAvatarType.CHICKEN, "chicken");
+        //registerSet(PrimalAvatarType.SQUID, "squid");
         registerSet(PrimalAvatarType.IRON_GOLEM, "iron_golem");
         registerSet(PrimalAvatarType.SNOW_GOLEM, "snow_golem");
         registerSet(PrimalAvatarType.SALMON, "salmon");
-        registerSet(PrimalAvatarType.COD, "cod");
-        registerSet(PrimalAvatarType.PUFFERFISH, "pufferfish");
+        //registerSet(PrimalAvatarType.COD, "cod");
+        //registerSet(PrimalAvatarType.PUFFERFISH, "pufferfish");
     }
 
     private static void registerSet(PrimalAvatarType type, String nameEN) {
@@ -96,17 +100,29 @@ public class PrimalAvatarsInit {
     }
 
     @SubscribeEvent
-    public static void onRegisterItems(RegistryEvent.Register<Item> event) {
-        for (Item item : ITEMS) {
-            event.getRegistry().register(item);
+    protected static void registerItems(RegistryEvent.Register<Item> event)
+    {
+        Console.debug("- Enregistrement des armures:");
+        for (Item armor : ITEMS)
+        {
+            event.getRegistry().registerAll(armor);
+            Console.debug("  - #6FF7D0" + armor.getRegistryName());
         }
     }
 
     @SubscribeEvent
-    public static void onModelRegister(ModelRegistryEvent event) {
-        for (Item item : ITEMS) {
-            ModelLoader.setCustomModelResourceLocation(item, 0,
-                    new ModelResourceLocation(item.getRegistryName(), "inventory"));
+    protected static void registerRenders(ModelRegistryEvent event)
+    {
+        Console.debug("- Enregistrement du rendu des armures:");
+        for (Item armor : ITEMS)
+        {
+            registerRender(armor);
+            Console.debug("  - #6FF794" + armor.getRegistryName());
         }
+    }
+
+    private static void registerRender(Item item)
+    {
+        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
     }
 }

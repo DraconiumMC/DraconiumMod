@@ -11,6 +11,7 @@ public class ArmorBasic extends ItemArmor
         super(materialIn, renderIndexIn, equipmentSlotIn);
         this.setTranslationKey(name);
         this.setRegistryName(name);
-        this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_ARMORS);
+
+
     }
 }

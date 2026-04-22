@@ -7,6 +7,7 @@ import fr.draconium.core.init.enchants.EnchantementsInit;
 import fr.draconium.core.init.items.armors.PrimalAvatarsInit;
 import fr.draconium.core.network.PacketVoidstone;
 import fr.draconium.core.network.PacketVoidstoneHandler;
+import fr.draconium.core.primal.client.PrimalAvatarMorphRender;
 import fr.draconium.core.primal.network.PrimalNetwork;
 import fr.draconium.core.worlds.ModConfig;
 import fr.draconium.core.worlds.generation.WorldGenCustomOres;
@@ -84,12 +85,11 @@ public class DraconiumCore
 		// Tout ce qui est CLIENT ONLY
 		if (event.getSide() == Side.CLIENT)
 		{
+            MinecraftForge.EVENT_BUS.register(new PrimalRenderHandler());
 			// Keybinds
 			KeyBindings.init();
 
 		}
-
-
 
 		// Paquets réseau (OK des deux côtés)
 		DraconiumCorePackets.registerMessages();

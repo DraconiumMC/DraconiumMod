@@ -27,7 +27,7 @@ public class ClientProxy extends ServerProxy
         RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, RenderGrenade::new);
 
         // 2. Enregistrement du TESR (Désenchanteur - Le livre)
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDisenchanter.class, new RenderDisenchanter());
+        //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDisenchanter.class, new RenderDisenchanter());
         registerModel(OthersInit.VOIDSTONE);
 
         // 3. Enregistrement des Événements Client (GUI)
