@@ -28,6 +28,116 @@ item.draconium_chestplate.name=Plastron en Draconium
 item.draconium_leggings.name=Jambières en Draconium
 item.draconium_boots.name=Bottes en Draconium
 
+#ARMURES DE MOBS
+# --- Mobs Hostiles ---
+item.primal_blaze_helmet.name=Casque de Blaze
+item.primal_blaze_chestplate.name=Plastron de Blaze
+item.primal_blaze_leggings.name=Jambières de Blaze
+item.primal_blaze_boots.name=Bottes de Blaze
+
+item.primal_cave_spider_helmet.name=Casque d'Araignée Venimeuse
+item.primal_cave_spider_chestplate.name=Plastron d'Araignée Venimeuse
+item.primal_cave_spider_leggings.name=Jambières d'Araignée Venimeuse
+item.primal_cave_spider_boots.name=Bottes d'Araignée Venimeuse
+
+item.primal_creeper_helmet.name=Casque de Creeper
+item.primal_creeper_chestplate.name=Plastron de Creeper
+item.primal_creeper_leggings.name=Jambières de Creeper
+item.primal_creeper_boots.name=Bottes de Creeper
+
+item.primal_enderman_helmet.name=Casque d'Enderman
+item.primal_enderman_chestplate.name=Plastron d'Enderman
+item.primal_enderman_leggings.name=Jambières d'Enderman
+item.primal_enderman_boots.name=Bottes d'Enderman
+
+item.primal_ghast_helmet.name=Casque de Ghast
+item.primal_ghast_chestplate.name=Plastron de Ghast
+item.primal_ghast_leggings.name=Jambières de Ghast
+item.primal_ghast_boots.name=Bottes de Ghast
+
+item.primal_skeleton_helmet.name=Casque de Squelette
+item.primal_skeleton_chestplate.name=Plastron de Squelette
+item.primal_skeleton_leggings.name=Jambières de Squelette
+item.primal_skeleton_boots.name=Bottes de Squelette
+
+item.primal_spider_helmet.name=Casque d'Araignée
+item.primal_spider_chestplate.name=Plastron d'Araignée
+item.primal_spider_leggings.name=Jambières d'Araignée
+item.primal_spider_boots.name=Bottes d'Araignée
+
+item.primal_witch_helmet.name=Chapeau de Sorcière
+item.primal_witch_chestplate.name=Plastron de Sorcière
+item.primal_witch_leggings.name=Jambières de Sorcière
+item.primal_witch_boots.name=Bottes de Sorcière
+
+item.primal_wither_skeleton_helmet.name=Crâne de Squelette Wither
+item.primal_wither_skeleton_chestplate.name=Plastron de Squelette Wither
+item.primal_wither_skeleton_leggings.name=Jambières de Squelette Wither
+item.primal_wither_skeleton_boots.name=Bottes de Squelette Wither
+
+item.primal_zombie_helmet.name=Casque de Zombie
+item.primal_zombie_chestplate.name=Plastron de Zombie
+item.primal_zombie_leggings.name=Jambières de Zombie
+item.primal_zombie_boots.name=Bottes de Zombie
+
+item.primal_pig_zombie_helmet.name=Casque de Zombie-Pigman
+item.primal_pig_zombie_chestplate.name=Plastron de Zombie-Pigman
+item.primal_pig_zombie_leggings.name=Jambières de Zombie-Pigman
+item.primal_pig_zombie_boots.name=Bottes de Zombie-Pigman
+
+# --- Mobs Passifs ---
+item.primal_chicken_helmet.name=Casque de Poulet
+item.primal_chicken_chestplate.name=Plastron de Poulet
+item.primal_chicken_leggings.name=Jambières de Poulet
+item.primal_chicken_boots.name=Bottes de Poulet
+
+item.primal_cow_helmet.name=Casque de Vache
+item.primal_cow_chestplate.name=Plastron de Vache
+item.primal_cow_leggings.name=Jambières de Vache
+item.primal_cow_boots.name=Bottes de Vache
+
+item.primal_pig_helmet.name=Casque de Cochon
+item.primal_pig_chestplate.name=Plastron de Cochon
+item.primal_pig_leggings.name=Jambières de Cochon
+item.primal_pig_boots.name=Bottes de Cochon
+
+item.primal_sheep_helmet.name=Casque de Mouton
+item.primal_sheep_chestplate.name=Plastron de Mouton
+item.primal_sheep_leggings.name=Jambières de Mouton
+item.primal_sheep_boots.name=Bottes de Mouton
+
+item.primal_squid_helmet.name=Casque de Calamar
+item.primal_squid_chestplate.name=Plastron de Calamar
+item.primal_squid_leggings.name=Jambières de Calamar
+item.primal_squid_boots.name=Bottes de Calamar
+
+# --- Poissons ---
+item.primal_cod_helmet.name=Casque de Morue
+item.primal_cod_chestplate.name=Plastron de Morue
+item.primal_cod_leggings.name=Jambières de Morue
+item.primal_cod_boots.name=Bottes de Morue
+
+item.primal_pufferfish_helmet.name=Casque de Poisson-Globe
+item.primal_pufferfish_chestplate.name=Plastron de Poisson-Globe
+item.primal_pufferfish_leggings.name=Jambières de Poisson-Globe
+item.primal_pufferfish_boots.name=Bottes de Poisson-Globe
+
+item.primal_salmon_helmet.name=Casque de Saumon
+item.primal_salmon_chestplate.name=Plastron de Saumon
+item.primal_salmon_leggings.name=Jambières de Saumon
+item.primal_salmon_boots.name=Bottes de Saumon
+
+# --- Golems ---
+item.primal_iron_golem_helmet.name=Casque de Golem de Fer
+item.primal_iron_golem_chestplate.name=Plastron de Golem de Fer
+item.primal_iron_golem_leggings.name=Jambières de Golem de Fer
+item.primal_iron_golem_boots.name=Bottes de Golem de Fer
+
+item.primal_snow_golem_helmet.name=Casque de Golem de Neige
+item.primal_snow_golem_chestplate.name=Plastron de Golem de Neige
+item.primal_snow_golem_leggings.name=Jambières de Golem de Neige
+item.primal_snow_golem_boots.name=Bottes de Golem de Neige
+
 
 # ARMURE AUTRES
 
@@ -111,6 +221,7 @@ item.draconium_gear.name=Rouage en Draconium
 item.upgrade_speed.name=Amélioration de Vitesse
 item.upgrade_fortune.name=Amélioration de Fortune
 item.voidstone.name=Voidstone
+
 
 #ARC ET FLECHES
 item.draconium_bow.name=Arc en Draconium

@@ -87,21 +87,18 @@ public class PrimalAvatarHandler {
     }
 
     // Méthode de réflexion placée HORS de applyMorphPhysics
+    // À mettre à la fin de ton PrimalAvatarHandler
     private static void reflectionSetSize(EntityPlayer player, float width, float height) {
         try {
-            // func_70105_a est le nom SRG de setSize en 1.12.2
-            java.lang.reflect.Method m = Entity.class.getDeclaredMethod("func_70105_a", float.class, float.class);
+            java.lang.reflect.Method m = net.minecraft.entity.Entity.class.getDeclaredMethod("func_70105_a", float.class, float.class);
             m.setAccessible(true);
             m.invoke(player, width, height);
         } catch (Exception e) {
-            // Si func_70105_a échoue (environnement dev), on tente le nom direct
             try {
-                java.lang.reflect.Method m = Entity.class.getDeclaredMethod("setSize", float.class, float.class);
+                java.lang.reflect.Method m = net.minecraft.entity.Entity.class.getDeclaredMethod("setSize", float.class, float.class);
                 m.setAccessible(true);
                 m.invoke(player, width, height);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+            } catch (Exception e2) { e2.printStackTrace(); }
         }
     }
 
@@ -175,6 +172,8 @@ public class PrimalAvatarHandler {
             }
         }
     }
+
+
 
     private static boolean rollDrop(World world) {
         float span = ModConfig.primalArmorDropMaxChance - ModConfig.primalArmorDropMinChance;

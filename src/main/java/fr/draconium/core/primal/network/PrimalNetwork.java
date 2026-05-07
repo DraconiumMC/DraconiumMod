@@ -4,25 +4,34 @@ import fr.draconium.core.capabilities.player.ExtendedPlayerData;
 import fr.draconium.core.primal.PrimalAvatarAbilities;
 import fr.draconium.core.primal.client.PrimalAvatarClientCooldownStore;
 import fr.draconium.core.proxy.packets.server.DraconiumCorePackets;
+import fr.draconium.core.references.Reference;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public final class PrimalNetwork {
 
-    private PrimalNetwork() {}
+    // Utilisation directe du MODID pour éviter le NullPointerException au chargement
+    public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MODID);
 
-    /**
-     * Méthode de synchronisation (anciennement dans PrimalAvatarNetwork)
-     */
+    public static void init() {
+        int id = 0;
+        // Enregistrement des paquets avec des IDs uniques
+        INSTANCE.registerMessage(PacketRequest.Handler.class, PacketRequest.class, id++, Side.SERVER);
+        INSTANCE.registerMessage(PacketCooldown.Handler.class, PacketCooldown.class, id++, Side.CLIENT);
+    }
+
     public static void syncAbilityCooldown(EntityPlayerMP player) {
         long next = ExtendedPlayerData.get(player).primalAvatarAbility.getNextAbilityUseWorldTick();
-        DraconiumCorePackets.INSTANCE.sendTo(new PacketCooldown(player.getEntityId(), next), player);
+        // Utilise l'instance locale pour l'envoi
+        INSTANCE.sendTo(new PacketCooldown(player.getEntityId(), next), player);
     }
 
     // ==========================================

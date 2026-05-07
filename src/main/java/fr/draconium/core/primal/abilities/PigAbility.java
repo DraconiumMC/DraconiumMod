@@ -86,26 +86,43 @@ public class PigAbility implements IPrimalAbility {
      * Gère le transfert des contrôles du Cavalier vers la Monture
      */
     private void handleSteering(EntityPlayerMP mount, EntityPlayer rider) {
-        // Transfert de la vue (Direction)
+        // 1. On synchronise la vue (déjà très bien dans ton code)
         mount.rotationYaw = rider.rotationYaw;
-        mount.prevRotationYaw = mount.rotationYaw;
-        mount.setRotationYawHead(mount.rotationYaw);
+        mount.prevRotationYaw = rider.prevRotationYaw;
+        mount.setRotationYawHead(rider.getRotationYawHead());
+        mount.rotationPitch = rider.rotationPitch * 0.5F; // Le cochon regarde un peu vers le haut/bas
 
-        // Transfert des déplacements (Z, Q, S, D)
+        // 2. Correction du mouvement
+        // Sur le serveur, rider.moveForward est souvent 0.
+        // On vérifie si le cavalier avance en regardant sa vélocité ou via des paquets custom.
+        // Approche simplifiée : On utilise la rotation pour définir la direction du mouvement.
+
+        float speed = 0.22F; // Vitesse de base du cochon
+        if (mount.isPotionActive(MobEffects.SPEED)) {
+            speed += 0.05F * (mount.getActivePotionEffect(MobEffects.SPEED).getAmplifier() + 1);
+        }
+
+        // Si le cavalier regarde vers l'avant (on simule le moveForward)
+        // Note : Pour une précision totale, il faudrait un Packet custom,
+        // mais on peut tricher en vérifiant les inputs via le rider.
         mount.moveForward = rider.moveForward;
         mount.moveStrafing = rider.moveStrafing;
 
-        // --- CORRECTION DU SAUT ---
-        // On utilise l'attribut motionY ou isJumping via réflexion/accesseur
-        // Si le cavalier essaie de sauter, on fait sauter le cochon
-        if (rider.rotationPitch < -45.0F && rider.moveForward > 0) {
-            // Optionnel : Sauter si on regarde vers le haut
+        // 3. Forcer la vélocité (pour empêcher le joueur-cochon de bouger ailleurs)
+        if (mount.moveForward > 0) {
+            double lookX = -Math.sin(mount.rotationYaw * Math.PI / 180.0D);
+            double lookZ = Math.cos(mount.rotationYaw * Math.PI / 180.0D);
+            mount.motionX = lookX * speed;
+            mount.motionZ = lookZ * speed;
+        } else if (mount.moveForward < 0) {
+            double lookX = -Math.sin(mount.rotationYaw * Math.PI / 180.0D);
+            double lookZ = Math.cos(mount.rotationYaw * Math.PI / 180.0D);
+            mount.motionX = -lookX * (speed * 0.5);
+            mount.motionZ = -lookZ * (speed * 0.5);
         }
 
-        // La méthode la plus simple pour le saut sans erreur de compilation :
-        if (rider.motionY > 0 && mount.onGround) {
-            mount.jump();
-        }
+        // 4. Synchronisation Client/Serveur
+        mount.velocityChanged = true;
     }
 
     /**
